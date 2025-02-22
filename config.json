@@ -1,0 +1,11 @@
+{
+    "name": "Zendesk Feedback Fetcher",
+    "type": "output",
+    "description": "Fetches and displays Zendesk user feedback in Telex.",
+    "config": {
+      "zendesk_domain": "yourcompany.zendesk.com",
+      "api_key": "your_api_key",
+      "update_frequency": "5min"
+    }
+  }
+  
