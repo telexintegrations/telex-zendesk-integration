@@ -62,11 +62,11 @@ async def get_integration_json(request: Request):
             "descriptions": {
                 "app_name": "Zendesk Feedback Monitor",
                 "app_description": "Fetches and displays user feedback from Zendesk",
-                "app_url": ZENDESK_URL,
+                "app_url": base_url,
                 "app_logo": "https://i.imgur.com/lzyyfp.png",
                 "background_color": "#fff",
             },
-            "integration_category": "Customer Support & Feedback",
+            "integration_category": " CRM & Customer Support",
             "integration_type": "interval",
             "is_active": True,
             "key_features": [
@@ -81,7 +81,7 @@ async def get_integration_json(request: Request):
                 {"label": "zendesk_api_token", "type": "text", "required": True, "default": ""},
                 {"label": "interval", "type": "text", "required": True, "default": "*/5 * * * *"},
             ],
-            "tick_url": f"{ZENDESK_URL}/tick",
+            "tick_url": f"{base_url}/tick",
             "target_url": "",
         }
     }
