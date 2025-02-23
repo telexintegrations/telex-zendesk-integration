@@ -7,14 +7,6 @@ from services.zendesk import *
 from config import ZENDESK_URL, ZENDESK_EMAIL, ZENDESK_API_TOKEN
 
 
-
-
-def get_setting_by_label(settings, label):
-    for setting in settings:
-        if setting.get("label") == label:
-            return setting.get("default")
-    return None
-
 app = FastAPI()
 
 # Enable CORS for all origins
@@ -26,6 +18,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
+def get_setting_by_label(settings, label):
+    for setting in settings:
+        if setting.get("label") == label:
+            return setting.get("default")
+    return None
 # Store the latest Zendesk data
 
 
