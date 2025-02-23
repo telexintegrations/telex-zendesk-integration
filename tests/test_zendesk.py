@@ -72,30 +72,6 @@ async def test_fetch_satisfaction_ratings(mock_get):
 
 
 
-# @pytest.mark.asyncio
-# @patch("services.zendesk.httpx.AsyncClient.get")  # Ensure correct import path
-# async def test_fetch_satisfaction_ratings(mock_get):
-#     """Test fetching customer satisfaction ratings from Zendesk"""
-
-#     # ✅ Create an AsyncMock for the response
-#     mock_response = AsyncMock()
-#     mock_response.status_code = 200
-#     mock_response.json = AsyncMock(return_value={  # ✅ Mock `.json()` properly
-#         "satisfaction_ratings": [{"id": 1, "score": 5, "comment": "Great service!"}]
-#     })
-
-#     # ✅ Mock `AsyncClient.get()` to return `mock_response`
-#     mock_get.return_value = mock_response
-
-#     # ✅ Call the function
-#     ratings = await fetch_satisfaction_ratings("https://example.zendesk.com", "test@example.com", "fake_token")
-
-#     # ✅ Assertions
-#     assert len(ratings) == 1
-#     assert ratings[0]["score"] == 5
-#     assert ratings[0]["comment"] == "Great service!"
-
-
 @pytest.mark.asyncio
 @patch("services.zendesk.httpx.AsyncClient.post")
 async def test_send_feedback_to_telex(mock_post):

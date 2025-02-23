@@ -31,7 +31,7 @@ def get_setting_by_label(settings, label):
 @app.get("/integration.json")
 async def get_integration_json(request: Request):
     """Returns integration details for Telex."""
-    base_url = str("https://tfklhl45-8000.uks1.devtunnels.ms")
+    base_url = str("https://telex-zendesk-integration-one.vercel.app/integration.json")
     return {
         "data": {
             "descriptions": {
