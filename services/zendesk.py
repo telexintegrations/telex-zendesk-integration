@@ -1,6 +1,8 @@
 import httpx
 import os
 from config import ZENDESK_URL, ZENDESK_EMAIL, ZENDESK_API_TOKEN
+from unittest.mock import AsyncMock
+
 
 
 AUTH = (f"{ZENDESK_EMAIL}/token", ZENDESK_API_TOKEN)
@@ -16,11 +18,13 @@ async def fetch_support_tickets(zendesk_subdomain, zendesk_email, zendesk_api_to
         response = await client.get(zendesk_api_url, auth=get_auth(zendesk_email, zendesk_api_token))
 
         if response.status_code == 200:
-            data = await response.json() 
+            data = response.json()  # First, await the coroutine to get the dictionary
             tickets = data.get("tickets", [])
             return [{"id": t["id"], "subject": t["subject"], "status": t["status"]} for t in tickets]
         
         return {"error": f"Failed to fetch tickets. Status: {response.status_code}"}
+
+
 
 async def fetch_satisfaction_ratings(zendesk_subdomain, zendesk_email, zendesk_api_token):
     """Fetches customer satisfaction ratings from Zendesk."""
@@ -30,7 +34,7 @@ async def fetch_satisfaction_ratings(zendesk_subdomain, zendesk_email, zendesk_a
         response = await client.get(url, auth=get_auth(zendesk_email, zendesk_api_token))
 
         if response.status_code == 200:
-            data = await    response.json()
+            data = response.json()
             return [{"id": r["id"], "score": r["score"], "comment": r.get("comment", "No comment")} for r in data.get("satisfaction_ratings", [])]
         
         return {"error": f"Failed to fetch ratings. Status: {response.status_code}"}
