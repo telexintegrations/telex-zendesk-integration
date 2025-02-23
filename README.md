@@ -47,6 +47,7 @@ The API returns a JSON response with HTTP status code 200 OK:
       "updated_at": "2025-02-20"
     },
     "feedback": {
+      "ticket": "created ticket",
       "satisfaction_score": "Good",
       "average_response_time": "3 hours"
     }
@@ -100,7 +101,8 @@ Ensure you have the following installed:
 
 -uvicorn main:app --reload
 
--The API will be available at: http://127.0.0.1:8000/integration.json
+-The API will be available at: https://tfklhl45-8000.uks1.devtunnels.ms/integration.json
+https://telex-zendesk-integration-one.vercel.app/integration.json
 
 
 ## Deployment
@@ -136,7 +138,9 @@ AUTH_TOKEN: API authentication token from Zendesk
 
 ### The API is deployed at:
 
-https://hng12-stage3-telex.vercel.app/api/v1/telex-integration
+https://telex-zendesk-integration-one.vercel.app/integration.json
+or 
+https://tfklhl45-8000.uks1.devtunnels.ms/integration.json
 
 ### Testing
 1. **Using Postman:**
