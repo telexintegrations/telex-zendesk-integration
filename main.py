@@ -35,7 +35,7 @@ async def get_integration_json(request: Request):
     return {
         "data": {
             "descriptions": {
-                "app_name": "Zendesk Feedback Monitor",
+                "app_name": "User Feedback from Zendesk",
                 "app_description": "Fetches and displays user feedback from Zendesk",
                 "app_url": base_url,
                 "app_logo": "https://i.imgur.com/lzyyfp.png",
