@@ -105,6 +105,9 @@ Ensure you have the following installed:
 https://telex-zendesk-integration-one.vercel.app/integration.json
 
 
+## Pictorial representation of telex getting tickets from zendesk
+![alt text](image.png)
+
 ## Deployment
 
 ### To deploy this API using Vercel:
